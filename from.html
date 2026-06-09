@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>আড়ং বাংলাদেশ - নিয়োগ আবেদন</title>
+    <style>
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+            font-family: Arial, sans-serif; 
+        } 
+        body { 
+            background-color: #f4f6f9; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            padding: 20px; 
+        } 
+        .form-container { 
+            background: #fff; 
+            width: 100%; 
+            max-width: 450px; 
+            padding: 25px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+        } 
+        .logo-box { 
+            text-align: center; 
+            margin-bottom: 15px; 
+        } 
+        .logo { 
+            max-width: 120px; 
+            height: auto; 
+        } 
+        h2 { 
+            text-align: center; 
+            color: #1a5c37; 
+            font-size: 22px; 
+            margin-bottom: 5px; 
+        } 
+        h3 { 
+            text-align: center; 
+            color: #555; 
+            font-size: 16px; 
+            margin-bottom: 15px; 
+        } 
+        p { 
+            text-align: center; 
+            color: #666; 
+            font-size: 14px; 
+            margin-bottom: 25px; 
+            line-height: 1.4; 
+        } 
+        label { 
+            display: block; 
+            font-size: 14px; 
+            font-weight: bold; 
+            color: #333; 
+            margin-bottom: 6px; 
+            margin-top: 15px; 
+        } 
+        input[type="text"], input[type="tel"], input[type="number"], select, textarea { 
+            width: 100%; 
+            padding: 10px; 
+            border: 1px solid #ccc; 
+            border-radius: 6px; 
+            font-size: 15px; 
+            outline: none; 
+        } 
+        input:focus, select:focus, textarea:focus { 
+            border-color: #1a5c37; 
+        } 
+        .payment-section { 
+            background: #fff5e6; 
+            border: 2px dashed #f7941d; 
+            padding: 20px; 
+            border-radius: 8px; 
+            margin-top: 25px; 
+            text-align: center; 
+        } 
+        .payment-amount { 
+            font-size: 20px; 
+            font-weight: bold; 
+            color: #333; 
+            margin-bottom: 12px; 
+        } 
+        .payment-title { 
+            font-size: 18px; 
+            font-weight: bold; 
+            color: #e65c00; 
+            margin-bottom: 8px; 
+            text-transform: uppercase; 
+        } 
+        .number-box { 
+            background: #fff; 
+            border: 2px solid #f7941d; 
+            padding: 12px; 
+            font-size: 22px; 
+            font-weight: bold; 
+            color: #f7941d; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            display: block; 
+            margin-bottom: 20px; 
+            letter-spacing: 1px; 
+        } 
+        .number-box:hover { 
+            background: #fffaf0; 
+        } 
+        .copy-hint { 
+            font-size: 11px; 
+            color: #777; 
+            display: block; 
+            font-weight: normal; 
+            margin-top: 4px; 
+        } 
+        .payment-section input { 
+            border: 1px solid #f7941d; 
+        } 
+        button[type="submit"] { 
+            width: 100%; 
+            background: #1a5c37; 
+            color: #fff; 
+            border: none; 
+            padding: 12px; 
+            font-size: 16px; 
+            font-weight: bold; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            margin-top: 25px; 
+            transition: 0.3s; 
+        } 
+        button[type="submit"]:hover { 
+            background: #134428; 
+        } 
+        button:disabled { 
+            background: #ccc; 
+            cursor: not-allowed; 
+        } 
+        .toast { 
+            display: none; 
+            background: #333; 
+            color: #fff; 
+            padding: 8px 16px; 
+            position: fixed; 
+            bottom: 20px; 
+            border-radius: 4px; 
+            font-size: 14px; 
+            z-index: 1000; 
+        } 
+        .success-msg { 
+            display: none; 
+            color: #155724; 
+            background-color: #d4edda; 
+            border: 1px solid #c3e6cb; 
+            padding: 12px; 
+            border-radius: 6px; 
+            font-weight: bold; 
+            margin-top: 15px; 
+            text-align: center; 
+            font-size: 14px; 
+        } 
+    </style> 
+</head> 
+<body> 
+    <div class="form-container"> 
+        <div class="logo-box"> 
+            <img src="1781009414752.jpg" class="logo" alt="আড়ং বাংলাদেশ"> 
+        </div> 
+        <h2>আড়ং বাংলাদেশ</h2> 
+        <h3>পদের নাম: Salesman</h3> 
+        <p>নিয়োগের জন্য আবেদন করতে নিচের তথ্যগুলো সঠিকভাবে পূরণ করুন।</p> 
+        
+        <form id="applicationForm"> 
+            <label>আপনার নাম (ইংরেজিতে)</label> 
+            <input type="text" id="userName" required> 
+            
+            <label>মোবাইল নম্বর</label> 
+            <input type="tel" id="userPhone" required> 
+            
+            <label>বয়স</label> 
+            <input type="number" id="userAge" required> 
+            
+            <label>শিক্ষাগত যোগ্যতা</label> 
+            <select id="userEdu" required> 
+                <option value="">নির্বাচন করুন</option> 
+                <option>SSC</option> 
+                <option>HSC</option> 
+                <option>Diploma</option> 
+                <option>Graduate</option> 
+            </select> 
+            
+            <label>কাজের অভিজ্ঞতা</label> 
+            <input type="text" id="userExp"> 
+            
+            <label>বর্তমান ঠিকানা</label> 
+            <textarea rows="4" id="userAddress" required></textarea> 
+            
+            <!-- নগদ পেমেন্ট সেকশন --> 
+            <div class="payment-section"> 
+                <div class="payment-amount">নগদ পেমেন্ট: ৳ ৫০০</div> 
+                <div class="payment-title">সেন্ড মানি করুন</div> 
+                <div class="number-box" onclick="copyNagadNumber()"> 
+                    01816712866 
+                    <span class="copy-hint">(নম্বরে ক্লিক করে কপি করুন)</span> 
+                </div> 
+                <label style="text-align: left; margin-top: 0; color: #444;">ট্রানজেকশন আইডি (TrxID)</label> 
+                <input type="text" id="trxId" placeholder="এখানে TrxID লিখুন" required> 
+            </div> 
+            
+            <!-- সাবমিট বাটন --> 
+            <button type="submit" id="submitBtn">আবেদন করুন</button> 
+        </form> 
+        
+        <div class="success-msg" id="successMessage"> 
+            আপনার আবেদন এবং ট্রানজেকশন আইডি সফলভাবে গুগল শিটে জমা হয়েছে! 
+        </div> 
+    </div> 
+
+    <div class="toast" id="toastBox">নম্বর কপি হয়েছে!</div> 
+
+    <script> 
+        // গুরুত্বপূর্ণ: আপনার গুগল অ্যাপস স্ক্রিপ্ট ডেপ্লয় করার পর যে Web App URL পাবেন, তা নিচের লাইনে সিঙ্গেল কোটেশনের ভেতরে বসিয়ে দিন। 
+        const scriptURL = 'YOUR_GOOGLE_WEB_APP_URL_HERE'; 
+
+        function copyNagadNumber() { 
+            var number = "01816712866"; 
+            navigator.clipboard.writeText(number).then(function() { 
+                var toast = document.getElementById("toastBox"); 
+                toast.style.display = "block"; 
+                setTimeout(function() { 
+                    toast.style.display = "none"; 
+                }, 2000); 
+            }); 
+        } 
+
+        document.getElementById('applicationForm').addEventListener('submit', function(e) { 
+            e.preventDefault(); 
+            const submitBtn = document.getElementById('submitBtn'); 
+            submitBtn.disabled = true; 
+            submitBtn.innerText = "জমা হচ্ছে..."; 
+
+            // ডেটা অবজেক্ট তৈরি
+            const formData = { 
+                name: document.getElementById('userName').value, 
+                phone: document.getElementById('userPhone').value, 
+                age: document.getElementById('userAge').value, 
+                education: document.getElementById('userEdu').value, 
+                experience: document.getElementById('userExp').value, 
+                address: document.getElementById('userAddress').value, 
+                trxid: document.getElementById('trxId').value 
+            }; 
+
+            fetch(scriptURL, { 
+                method: 'POST', 
+                mode: 'no-cors', 
+                cache: 'no-cache', 
+                headers: { 
+                    'Content-Type': 'application/json' 
+                }, 
+                body: JSON.stringify(formData) 
+            }) 
+            .then(() => { 
+                document.getElementById('successMessage').style.display = 'block'; 
+                document.getElementById('applicationForm').reset(); 
+                submitBtn.disabled = false; 
+                submitBtn.innerText = "আবেদন করুন"; 
+                document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' }); 
+            }) 
+            .catch(error => { 
+                alert('দুঃখিত, ডেটা পাঠাতে সমস্যা হয়েছে। গুগল শিটের ইউআরএল ঠিক আছে কিনা চেক করুন।'); 
+                submitBtn.disabled = false; 
+                submitBtn.innerText = "আবেদন করুন"; 
+                console.error('Error!', error.message);
+            }); 
+        }); 
+    </script> 
+</body>
+</html>
